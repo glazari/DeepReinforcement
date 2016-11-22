@@ -1,7 +1,7 @@
 # DeepReinforcement (Work in progress)
 This code is for running reinforcement learning algorithms on Gym platform using tensorflow. 
 
-##Structure
+##Code Structure
 The code is divided up in to 4 classes
 - Environment
 - Model
@@ -54,6 +54,30 @@ This class implements the following funcitons
   - some attention should be paid to how much of the memory is filled.
 
 ###Agent
+This is the class that will initialize the other classes. It can be used to play one time through the gam. It can evaluate its performance with the current model. And it is essentialy the class responsible for the learning algorithm whether it be DQN or a Policy Gradient method, or some sort of Sarsa or even an evolutionary scheam.
+This class implements the following funcitons
+- Init
+  - Creates the environment object
+  - Creates howevermany model object that are needed. In the case of DQN we need 2 convnets
+- Act(type)
+  - Random
+    -takes a random action
+  - Model based
+    - observes the state gets a prediction for the state and act acordingly
+  - Manual
+    - not implemented, but could be used to choose actions manualy
+
+The following functions are also implementes in this class, but possibly will migrate to a different class in the future. Some methods like the the Asynchronous Actor-Critic methods requires multple agents running in perralel for training. And therefore the training should be outside of this class. The play and Evaluate methods would also migrate for consistancy 
+- Play
+  - plays one full episode
+  - renders if permitted
+  - returns episode score
+- Evaluate
+  - plays n times
+  - returns mean score and standard deviation
+-Train
+  -This is essencialy the heart of the algorithm, where the reinforment learning part of the algorithm is implemnted.
+  -Evaluates throughout training.
 
 ## Requirements
 

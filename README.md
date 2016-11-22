@@ -61,7 +61,7 @@ This class implements the following funcitons
   - Creates howevermany model object that are needed. In the case of DQN we need 2 convnets
 - Act(type)
   - Random
-    -takes a random action
+    - takes a random action
   - Model based
     - observes the state gets a prediction for the state and act acordingly
   - Manual
@@ -75,9 +75,9 @@ The following functions are also implementes in this class, but possibly will mi
 - Evaluate
   - plays n times
   - returns mean score and standard deviation
--Train
-  -This is essencialy the heart of the algorithm, where the reinforment learning part of the algorithm is implemnted.
-  -Evaluates throughout training.
+- Train
+  - This is essencialy the heart of the algorithm, where the reinforment learning part of the algorithm is implemnted.
+  - Evaluates throughout training.
 
 ## Requirements
 

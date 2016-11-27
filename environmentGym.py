@@ -1,6 +1,6 @@
 class EnvironmentGym:
   
-  def __init__(self, name):
+  def __init__(self, name = 'CartPole-v0'):
     import gym
     self.env = gym.make(name)
     observation = self.env.reset()
@@ -8,6 +8,10 @@ class EnvironmentGym:
     self.currentReward = 0
     self.Terminal = False
     
+#####################################################################
+#The following methods are the "pretty" ones to help make outside   #
+#code more readable                                                 #
+#####################################################################
   
   def Observe(self):
     #Returns current State
@@ -15,15 +19,19 @@ class EnvironmentGym:
   
   def Act(self, action):
     #Executes 'action' and returns new current state
-    observation, currentReward, Terminal, info = self.env.step(action)
+    observation, self.currentReward, self.Terminal, info = self.env.step(action)
     currentState = self.observation2State(observation)
     return currentState
   
   def Reset(self):
     #Resets environment and returns new current state
-    self.observation = env.reset()
+    observation = self.env.reset()
     self.currentState = self.observation2State(observation)
-    return currentstate
+    self.Terminal = False
+    return self.currentState
+
+######################################################################
+#
 
   def getStateShape(self):
     return self.env.observation_space.shape
